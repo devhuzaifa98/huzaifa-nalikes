@@ -19,12 +19,18 @@ const Footer = ({
             "relative border-2 border-secondary-200 min-w-[300px]",
             {
               "hover:scale-110 hover:z-50": selectedCard !== index,
-              "scale-110 z-50": selectedCard === index,
+              "scale-110 z-50 bg-secondary-100": selectedCard === index,
             }
           )}
         >
           <div
-            className={`bg-primary-100 text-white hover:brightness-100 transition-transform duration-300 transform h-full`}
+            className={classNames(
+              `text-white hover:brightness-100 transition-transform duration-300 transform h-full`,
+              {
+                "bg-primary-100": selectedCard !== index,
+                "bg-secondary-100": selectedCard === index,
+              }
+            )}
           >
             <div className="p-10 pr-5 pb-0">
               <h6 className="text-sm text-secondary">{faction.title}</h6>
