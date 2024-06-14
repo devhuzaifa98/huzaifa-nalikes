@@ -24,56 +24,51 @@ const Body = ({ selectedCard }: { selectedCard: number }) => {
   }, [selectedCard]);
 
   return (
-    <div className="text-white pt-16 flex justify-center grow-1 flex-1">
-      <div className="w-1/2 flex flex-row">
-        <div className="w-2/3 mr-5">
-          <div className="space-y-3 mb-7">
-            <h1 className="text-transparent text-5xl opacity-[.6] text-stroke">
-              CHOOSE YOUR
-            </h1>
-            <h1 className="text-7xl font-semibold text-glow">FACTION</h1>
-          </div>
-          <div className="space-y-8 leading-7 text-lg">
-            <p className="opacity-[.6]">
-              Agents will be customizable, allowing you to select from among the
-              various factions in the game - will you fight for a global police
-              force seeking to enact a new brand of justice? Or will you battle
-              alongside a secret network of deviants and outcasts?
-            </p>
-            <p className="opacity-[.6]">
-              Once you acquire your agent, the choice is yours. Pledging your
-              allegiance is no small decision - as your agent accrues Loyalty
-              Points over time, your choices truly matter.
-            </p>
-            <button className="button-custom bg-gray-200 text-gray-800 px-6 text-md py-1">
-              UTILITY
-            </button>
-          </div>
-        </div>
-        <div className="w-full h-full">
-          <div className="faction-image space-y-4">
-            {segments?.map((segment, i) => (
-              <div className="relative" key={i}>
+    <div className="text-white pt-16 w-2/3 flex mx-auto">
+      <div className="w-2/5 mr-5">
+        <h1 className="text-transparent text-5xl opacity-[.6] text-stroke mb-3">
+          CHOOSE YOUR
+        </h1>
+        <h1 className="text-7xl font-semibold text-glow mb-7">FACTION</h1>
+        <p className="opacity-[.6] leading-7 text-lg mb-8">
+          Agents will be customizable, allowing you to select from among the
+          various factions in the game - will you fight for a global police
+          force seeking to enact a new brand of justice? Or will you battle
+          alongside a secret network of deviants and outcasts?
+          <br />
+          <br />
+          Once you acquire your agent, the choice is yours. Pledging your
+          allegiance is no small decision - as your agent accrues Loyalty Points
+          over time, your choices truly matter.
+        </p>
+        <button className="button-custom bg-gray-200 text-gray-800 px-6 text-md py-1">
+          UTILITY
+        </button>
+      </div>
+      <div className="w-3/5 faction-image space-y-4">
+        {segments?.map((segment, i) => (
+          <div className="relative" key={i}>
+            <img
+              key={i + "faction_image"}
+              src={factionImageSegments?.[i]?.[0] || ""}
+              alt={`faction_image_segment_${i}`}
+            />
+            <div
+              className="flex justify-stretch items-stretch absolute left-0 top-0 gap-0 w-full h-full"
+              key={i}
+            >
+              {segment.map((side, j) => (
                 <img
-                  key={i + "faction_image"}
-                  src={factionImageSegments?.[i]?.[0] || ""}
-                  alt={`faction_image_segment_${i}`}
+                  className='w-full'
+                  style={{ transitionDelay: `${100 + i * 100}ms` }}
+                  key={`segment_${i}_${j}`}
+                  src={side}
+                  alt={`segment_${i}_${j}`}
                 />
-                <div className="flex justify-stretch items-stretch absolute left-0 top-0 gap-0 w-full h-full" key={i}>
-                  {segment.map((side, j) => (
-                    <img
-                      className={`w-full`}
-                      style={{ transitionDelay: `${100 + (i * 100)}ms` }}
-                      key={`segment_${i}_${j}`}
-                      src={side}
-                      alt={`segment_${i}_${j}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

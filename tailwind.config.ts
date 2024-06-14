@@ -42,7 +42,7 @@ const config: Config = {
       },
       backgroundImage: {
         "custom-gradient":
-          "linear-gradient(180deg, rgb(2,5,10) 0%, rgba(21,22,30,1) 80%, rgb(2,5,10) 0%)",
+          "linear-gradient(180deg, rgb(2,5,10) 0%, rgba(21,22,30,1) 80%, rgb(2,5,10) 100%)",
       },
     },
   },

@@ -16,7 +16,7 @@ const Footer = ({
           key={index}
           onClick={() => onSelectionChange(index)}
           className={classNames(
-            "relative border-2 border-secondary-950 min-w-[250px]",
+            "relative border-2 border-secondary-950 min-w-[250px] min-h-48",
             {
               "hover:scale-110 hover:z-50 transition duration-200":
                 selectedCard !== index,
@@ -51,16 +51,17 @@ const Footer = ({
                 {faction.description}
               </p>
             </div>
-            <div className="flex justify-center mb-5">
-              <Image
+            <Image
                 src={`/logos/${index + 1}.svg`}
-                className={classNames({
+                className={classNames('absolute bottom-6 left-1/2 -translate-x-1/2', {
                   "brightness-0 invert": selectedCard !== index,
                 })}
                 alt="test"
                 width={60}
                 height={60}
-              />
+            />
+            <div className="flex justify-center mb-5">
+              
             </div>
           </div>
         </div>
